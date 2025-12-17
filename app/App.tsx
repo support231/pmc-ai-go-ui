@@ -4,9 +4,16 @@ import { useCallback, useState } from "react";
 import { ChatKitPanel, type FactAction } from "@/components/ChatKitPanel";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
+const SAMPLE_QUESTIONS = [
+  "Explain the cause of fabric wear on the forming section",
+  "Suggest optimization steps for dryer fabric performance",
+  "Draft a short technical email to a paper mill maintenance team",
+];
+
 export default function App() {
   const { scheme, setScheme } = useColorScheme();
   const [chatStarted, setChatStarted] = useState(false);
+  const [prefill, setPrefill] = useState<string | null>(null);
 
   const handleWidgetAction = useCallback(async (action: FactAction) => {
     if (process.env.NODE_ENV !== "production") {
@@ -20,21 +27,16 @@ export default function App() {
     }
   }, []);
 
+  const startChatWithQuestion = (question: string) => {
+    setPrefill(question);
+    setChatStarted(true);
+  };
+
   return (
     <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       {!chatStarted ? (
         /* ===== LANDING STATE ===== */
         <div className="flex min-h-screen flex-col items-center justify-center px-4">
-          {/* Banner */}
-          <div className="mb-10 text-center">
-            <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
-              PMC CENTRE AI
-            </h1>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">
-              Expert in Paper Machine Clothing technology, plus general AI assistance
-            </p>
-          </div>
-
           {/* Feature boxes */}
           <div className="mb-10 grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
             <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
@@ -66,14 +68,23 @@ export default function App() {
             </div>
           </div>
 
-          {/* Example questions */}
-          <div className="mb-8 max-w-3xl text-center text-sm text-slate-600 dark:text-slate-400">
-            <p>Example questions:</p>
-            <p className="mt-2">
-              Explain the cause of fabric wear on the forming section ·
-              Suggest optimization steps for dryer fabric performance ·
-              Draft a short technical email to a paper mill maintenance team
+          {/* Clickable example questions */}
+          <div className="mb-8 w-full max-w-2xl">
+            <p className="mb-3 text-center text-sm text-slate-600 dark:text-slate-400">
+              Example questions
             </p>
+
+            <div className="space-y-3">
+              {SAMPLE_QUESTIONS.map((q) => (
+                <button
+                  key={q}
+                  onClick={() => startChatWithQuestion(q)}
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-left text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -93,6 +104,7 @@ export default function App() {
               onWidgetAction={handleWidgetAction}
               onResponseEnd={handleResponseEnd}
               onThemeRequest={setScheme}
+              initialInput={prefill ?? undefined}
             />
           </main>
         </div>
