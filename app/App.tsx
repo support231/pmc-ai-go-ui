@@ -13,7 +13,6 @@ const SAMPLE_QUESTIONS = [
 export default function App() {
   const { scheme, setScheme } = useColorScheme();
   const [chatStarted, setChatStarted] = useState(false);
-  const [prefill, setPrefill] = useState<string | null>(null);
 
   const handleWidgetAction = useCallback(async (action: FactAction) => {
     if (process.env.NODE_ENV !== "production") {
@@ -26,11 +25,6 @@ export default function App() {
       console.debug("[ChatKitPanel] response end");
     }
   }, []);
-
-  const startChatWithQuestion = (question: string) => {
-    setPrefill(question);
-    setChatStarted(true);
-  };
 
   return (
     <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
@@ -78,7 +72,7 @@ export default function App() {
               {SAMPLE_QUESTIONS.map((q) => (
                 <button
                   key={q}
-                  onClick={() => startChatWithQuestion(q)}
+                  onClick={() => setChatStarted(true)}
                   className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-left text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
                 >
                   {q}
@@ -104,7 +98,6 @@ export default function App() {
               onWidgetAction={handleWidgetAction}
               onResponseEnd={handleResponseEnd}
               onThemeRequest={setScheme}
-              initialInput={prefill ?? undefined}
             />
           </main>
         </div>
