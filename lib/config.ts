@@ -5,18 +5,35 @@ export const WORKFLOW_ID =
 
 export const CREATE_SESSION_ENDPOINT = "/api/create-session";
 
+/**
+ * Starter prompts shown on the start screen
+ * Keep minimal and technical
+ */
 export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
-    label: "What can you do?",
-    prompt: "What can you do?",
+    label: "What can PMC CENTRE AI help with?",
+    prompt:
+      "What types of Paper Machine Clothing questions can you help with?",
     icon: "circle-question",
   },
 ];
 
-export const PLACEHOLDER_INPUT = "Ask anything...";
+/**
+ * Input placeholder text
+ * Guides users to ask structured technical questions
+ */
+export const PLACEHOLDER_INPUT =
+  "Ask a PMC question (machine section, grade, speed, fabric type, issue)…";
 
-export const GREETING = "How can I help you today?";
+/**
+ * Greeting shown on empty chat screen
+ * This is UI-only, NOT a system prompt
+ */
+export const GREETING = "PMC CENTRE AI — Technical assistant for Paper Machine Clothing";
 
+/**
+ * Theme configuration (kept conservative & professional)
+ */
 export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   color: {
     grayscale: {
@@ -30,6 +47,4 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
     },
   },
   radius: "round",
-  // Add other theme options here
-  // chatkit.studio/playground to explore config options
 });
