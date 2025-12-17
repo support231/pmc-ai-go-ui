@@ -25,6 +25,16 @@ export default function App() {
       {!chatStarted ? (
         /* ===== LANDING STATE ===== */
         <div className="flex min-h-screen flex-col items-center justify-center px-4">
+          {/* Banner */}
+          <div className="mb-10 text-center">
+            <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+              PMC CENTRE AI
+            </h1>
+            <p className="mt-2 text-slate-600 dark:text-slate-400">
+              Expert in Paper Machine Clothing technology, plus general AI assistance
+            </p>
+          </div>
+
           {/* Feature boxes */}
           <div className="mb-10 grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
             <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
@@ -47,12 +57,23 @@ export default function App() {
 
             <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
               <h3 className="font-semibold text-slate-800 dark:text-slate-200">
-                Expert Insights
+                All-in-One Assistant
               </h3>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                Industry knowledge across forming, press, and dryer fabrics.
+                Deep expertise in Paper Machine Clothing, with general AI support
+                for everyday professional tasks.
               </p>
             </div>
+          </div>
+
+          {/* Example questions */}
+          <div className="mb-8 max-w-3xl text-center text-sm text-slate-600 dark:text-slate-400">
+            <p>Example questions:</p>
+            <p className="mt-2">
+              Explain the cause of fabric wear on the forming section ·
+              Suggest optimization steps for dryer fabric performance ·
+              Draft a short technical email to a paper mill maintenance team
+            </p>
           </div>
 
           {/* CTA Button */}
