@@ -13,17 +13,14 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
     label: "Forming fabric wear",
     prompt: "Explain the cause of fabric wear on the forming section",
-    icon: "layers",
   },
   {
     label: "Dryer fabric optimization",
     prompt: "Suggest optimization steps for dryer fabric performance",
-    icon: "chart-line",
   },
   {
     label: "Draft a technical email",
     prompt: "Draft a short technical email to a paper mill maintenance team",
-    icon: "mail",
   },
 ];
 
