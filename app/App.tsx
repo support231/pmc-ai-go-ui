@@ -21,73 +21,36 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="flex min-h-screen flex-col bg-slate-100 dark:bg-slate-950">
       
-      {/* ===== HERO / START SCREEN ===== */}
-      <section className="flex flex-col items-center justify-center px-4 pt-16 pb-12 text-center">
+      {/* ===== COMPACT HEADER ===== */}
+      <header className="flex flex-col items-center pt-6 pb-4 text-center">
         <Image
           src="/PMCCentreLogoSmall.png"
           alt="PMC CENTRE AI"
-          width={72}
-          height={72}
+          width={48}
+          height={48}
           priority
         />
 
-        <h1 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-slate-100">
+        <h1 className="mt-2 text-2xl font-semibold text-slate-900 dark:text-slate-100">
           PMC Chat
         </h1>
 
-        <p className="mt-2 max-w-xl text-slate-600 dark:text-slate-400">
-          Your intelligent assistant for Paper Machine Clothing technology
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          Paper Machine Clothing – Technical Assistant
         </p>
+      </header>
 
-        {/* Optional: sign-in button placeholder */}
-        {/* 
-        <button className="mt-6 rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700">
-          Sign In to Get Started
-        </button> 
-        */}
-      </section>
-
-      {/* ===== FEATURE CARDS (STATIC UI) ===== */}
-      <section className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-4 pb-12 md:grid-cols-3">
-        <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
-          <h3 className="font-semibold text-slate-800 dark:text-slate-200">
-            AI-Powered
-          </h3>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Advanced AI specialized in Paper Machine Clothing technology.
-          </p>
-        </div>
-
-        <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
-          <h3 className="font-semibold text-slate-800 dark:text-slate-200">
-            Secure & Reliable
-          </h3>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Enterprise-grade infrastructure with safe session handling.
-          </p>
-        </div>
-
-        <div className="rounded-xl bg-white p-6 shadow-sm dark:bg-slate-900">
-          <h3 className="font-semibold text-slate-800 dark:text-slate-200">
-            Expert Insights
-          </h3>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Industry knowledge across forming, press, and dryer fabrics.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== CHAT AREA ===== */}
-      <section className="mx-auto w-full max-w-5xl px-4 pb-12">
+      {/* ===== CHAT AREA (DOMINANT) ===== */}
+      <main className="mx-auto flex w-full max-w-5xl flex-1 px-4 pb-6">
         <ChatKitPanel
           theme={scheme}
           onWidgetAction={handleWidgetAction}
           onResponseEnd={handleResponseEnd}
           onThemeRequest={setScheme}
         />
-      </section>
+      </main>
     </div>
   );
 }
