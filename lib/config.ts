@@ -11,10 +11,19 @@ export const CREATE_SESSION_ENDPOINT = "/api/create-session";
  */
 export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
-    label: "What can PMC CENTRE AI help with?",
-    prompt:
-      "What types of Paper Machine Clothing questions can you help with?",
-    icon: "circle-question",
+    label: "Forming fabric wear",
+    prompt: "Explain the cause of fabric wear on the forming section",
+    icon: "layers",
+  },
+  {
+    label: "Dryer fabric optimization",
+    prompt: "Suggest optimization steps for dryer fabric performance",
+    icon: "chart-line",
+  },
+  {
+    label: "Draft a technical email",
+    prompt: "Draft a short technical email to a paper mill maintenance team",
+    icon: "mail",
   },
 ];
 
@@ -29,7 +38,8 @@ export const PLACEHOLDER_INPUT =
  * Greeting shown on empty chat screen
  * This is UI-only, NOT a system prompt
  */
-export const GREETING = "PMC CENTRE AI — Technical assistant for Paper Machine Clothing";
+export const GREETING =
+  "PMC CENTRE AI — Technical assistant for Paper Machine Clothing";
 
 /**
  * Theme configuration (kept conservative & professional)
